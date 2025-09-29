@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Lanchonete</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Sistema de Lanchonete</h1>
+
+<div class="tabs">
+  <div class="tab active" data-tab="clientes">Clientes</div>
+  <div class="tab" data-tab="produtos">Produtos / Estoque</div>
+</div>
+<!-- Menu de navegação -->
+
+<!-- Dashboard -->
+<div class="dashboard">
+  <div class="dash-card"><div class="dash-title">Total de Clientes</div><div class="dash-value" id="dashClientes">0</div></div>
+  <div class="dash-card"><div class="dash-title">Caixa</div><div class="dash-value" id="dashCaixa">R$ 0,00</div></div>
+  <div class="dash-card"><div class="dash-title">Vendas Realizadas</div><div class="dash-value" id="dashVendas">R$ 0,00</div></div>
+  <div class="dash-card"><div class="dash-title">Dívidas (Fiado)</div><div class="dash-value" id="dashDividas">R$ 0,00</div></div>
+</div>
+
+<!-- Clientes -->
+<div class="tab-content active" id="clientes">
+  <div class="card">
+    <h3>Cadastrar / Editar Cliente</h3>
+    <input type="hidden" id="editIndex">
+    <label>Nome</label>
+    <input type="text" id="nomeCliente" placeholder="Ex: Victor">
+    <label>Tipo de Cliente</label>
+    <select id="tipoCliente">
+      <option value="pre">Pré-pago</option>
+      <option value="normal">Normal</option>
+      <option value="fiado">Fiado</option>
+    </select>
+    <button id="btnSalvarCliente">Salvar Cliente</button>
+  </div>
+
+  <div class="card">
+    <h3>Clientes</h3>
+    <table id="clientesTable">
+      <thead>
+        <tr><th>Nome</th><th>Tipo</th><th>Saldo</th><th>Compras</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Produtos -->
+<div class="tab-content" id="produtos">
+  <div class="card">
+    <h3>Cadastrar Produto</h3>
+    <label>Nome</label>
+    <input type="text" id="nomeProduto" placeholder="Ex: X-Salada">
+    <label>Preço (R$)</label>
+    <input type="number" id="precoProduto" step="0.01" min="0">
+    <label>Quantidade em Estoque</label>
+    <input type="number" id="qtdProduto" step="1" min="0" value="0">
+    <button id="btnSalvarProduto">Salvar Produto</button>
+    <button id="btnImportProduto">Importar CSV</button>
+    <input type="file" id="fileImport" style="display:none;" accept=".csv">
+    <button id="btnExportProduto">Exportar CSV</button>
+  </div>
+
+  <div class="card">
+    <h3>Estoque Atual</h3>
+    <table id="produtosTable">
+      <thead>
+        <tr><th>Produto</th><th>Preço</th><th>Quantidade</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal Deposito -->
+<div class="modal" id="modalDeposito">
+  <div class="modal-content">
+    <h3>Depositar</h3>
+    <input type="number" id="valorDeposito" step="0.01" min="1" placeholder="Valor R$">
+    <button id="confirmarDeposito" class="green">Confirmar</button>
+    <button onclick="fecharModal('modalDeposito')" class="red">Cancelar</button>
+  </div>
+</div>
+
+<!-- Modal Compra -->
+<div class="modal" id="modalCompra">
+  <div class="modal-content">
+    <h3>Compra</h3>
+    <label>Selecione o produto</label>
+    <select id="produtoCompra"></select>
+    <label>Quantidade</label>
+    <input type="number" id="qtdCompra" value="1" min="1">
+    <div id="totalCompra">Total: R$ 0,00</div>
+    <button id="confirmarCompra" class="yellow">Confirmar</button>
+    <button onclick="fecharModal('modalCompra')" class="red">Cancelar</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/dashboard.js"></script>
+<script src="js/clientes.js"></script>
+<script src="js/produtos.js"></script>
+<script src="js/compras.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

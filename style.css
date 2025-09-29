@@ -1,0 +1,53 @@
+body { margin:0; font-family:Arial,sans-serif; background:#f4f8fb; padding:20px; color:#111; }
+h1{ margin-bottom:15px; }
+
+.navbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: #0f62fe;
+  padding: 10px;
+  border-radius: 8px;
+}
+.navbar button {
+  background: #fff;
+  color: #0f62fe;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.navbar button.active {
+  background: #0353e9;
+  color: #fff;
+}
+
+.tabs{ display:flex; gap:10px; margin-bottom:20px; }
+.tab{ padding:8px 14px; cursor:pointer; background:#0f62fe; color:#fff; border-radius:6px; }
+.tab.active{ background:#0353e9; }
+.tab-content{ display:none; }
+.tab-content.active{ display:block; }
+
+.card{ background:#fff; border-radius:10px; padding:16px; margin-bottom:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+label{ display:block; margin-bottom:4px; font-size:14px; color:#555; }
+input, select{ width:100%; padding:8px; margin-bottom:10px; border:1px solid #ddd; border-radius:6px; font-size:14px; }
+button{ cursor:pointer; padding:8px 14px; border:none; border-radius:6px; font-weight:bold; color:#fff; background:#0f62fe; margin-right:5px; }
+button.red{ background:#ef4444; }
+button.green{ background:#10b981; }
+button.yellow{ background:#f59e0b; }
+table{ width:100%; border-collapse: collapse; margin-top:10px; background:#fff; border-radius:8px; overflow:hidden; }
+th,td{ padding:10px; border-bottom:1px solid #eee; font-size:14px; text-align:left; }
+th{ background:#f9fafb; }
+.saldo-pos{ color:#10b981; font-weight:bold; }
+.saldo-neg{ color:#ef4444; font-weight:bold; }
+.low-stock{ color:#f59e0b; font-weight:bold; }
+.dashboard{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+.dash-card{ flex:1; min-width:160px; background:#fff; border-radius:10px; padding:14px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+.dash-title{ font-size:13px; color:#555; }
+.dash-value{ font-size:18px; font-weight:bold; margin-top:4px; }
+.modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; }
+.modal-content{ background:#fff; padding:20px; border-radius:10px; max-width:400px; width:100%; }
